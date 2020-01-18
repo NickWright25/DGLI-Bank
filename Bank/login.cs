@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,9 @@ namespace Bank
         {
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string password = System.IO.File.ReadAllText(@"C:\Users\Nick\Documents\Don't Get Locked In\password.txt");
+            string password = System.IO.File.ReadAllText(@"C:\Users\DGLI\Documents\Bank\password.txt");
             if (txtPassword.Text == password)
             {
                 transactions transactionsForm = new transactions();
@@ -32,6 +32,5 @@ namespace Bank
             }
             txtPassword.Text = "";
         }
-        
     }
 }

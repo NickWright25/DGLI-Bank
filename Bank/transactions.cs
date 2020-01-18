@@ -20,7 +20,7 @@ namespace Bank
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             int index = 0;
-            string[] transactions = System.IO.File.ReadAllLines(@"C:\Users\Nick\Documents\Don't Get Locked In\transactions.txt");
+            string[] transactions = System.IO.File.ReadAllLines(@"C:\Users\DGLI\Documents\Bank\transactions.txt");
             bool usedCheck = false;
             foreach(string transaction in transactions)
             {
