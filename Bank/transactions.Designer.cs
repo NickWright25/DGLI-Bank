@@ -102,9 +102,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(225, 418);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Balance: £";
+            this.label2.Text = "Balance:";
             // 
             // lblBalance
             // 
@@ -112,7 +112,7 @@
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(253, 23);
             this.lblBalance.TabIndex = 15;
-            this.lblBalance.Text = "0.00";
+            this.lblBalance.Text = "£0.00";
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // listTransactions

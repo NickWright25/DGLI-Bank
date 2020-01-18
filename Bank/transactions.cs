@@ -15,11 +15,11 @@ namespace Bank
         {
             InitializeComponent();
         }
-        
+        public int balance = 0;
+        public int transactionNumber = 0;
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             int index = 0;
-            int transactionNumber = 0;
             string[] transactions = System.IO.File.ReadAllLines(@"C:\Users\Nick\Documents\Don't Get Locked In\transactions.txt");
             bool usedCheck = false;
             foreach(string transaction in transactions)
@@ -29,7 +29,6 @@ namespace Bank
                     foreach(DataGridViewRow row in listTransactions.Rows)
                     {
                         string usedTransaction = Convert.ToString(row.Cells[1].Value);
-                        Console.WriteLine(usedTransaction);
                         if(transaction == usedTransaction)
                         {
                             usedCheck = true;
@@ -39,17 +38,28 @@ namespace Bank
                     {
                         transactionNumber++;
                         listTransactions.Rows.Add(transactionNumber, transaction, transactions[index + 1]);
+                        balance += Convert.ToInt32(transactions[index + 1]);
+                        lblBalance.Text = Convert.ToString(balance);
                     }
                     
                 }
                 index++;
             }
-            if (lblBalance)
+            if (lblBalance.Text == "1000000")
+            {
+                Congratulations CongratulationsForm = new Congratulations();
+                CongratulationsForm.Show();
+            }
+            lblBalance.Text = string.Format("£{0:#.00}", Convert.ToDecimal(balance));
+
+            if (txtTransaction.Text == "resetmenow!")
+            {
+                
+            }
         }
 
         private void transactions_Load(object sender, EventArgs e)
         {
-            
         }
     }
 }

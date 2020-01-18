@@ -22,9 +22,10 @@ namespace Bank
             string password = System.IO.File.ReadAllText(@"C:\Users\Nick\Documents\Don't Get Locked In\password.txt");
             if (txtPassword.Text == password)
             {
-                transactions transactionsForm = new transactions();
+                /*transactions transactionsForm = new transactions();
                 transactionsForm.Show();
-                this.Hide();
+                this.Hide();*/
+                FormProvider.transaction.Show();
             } else
             {
                 IncorrectPassword IncorrectPasswordForm = new IncorrectPassword();
