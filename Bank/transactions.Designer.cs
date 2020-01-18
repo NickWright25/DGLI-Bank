@@ -40,9 +40,11 @@
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTransaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listTransactions)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTransaction
@@ -55,8 +57,10 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(532, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(541, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(256, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,7 +69,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnSubmit.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnSubmit.FlatAppearance.BorderSize = 0;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Location = new System.Drawing.Point(235, 64);
@@ -88,19 +92,21 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSubmit);
             this.panel1.Controls.Add(this.txtTransaction);
-            this.panel1.Location = new System.Drawing.Point(228, 106);
+            this.panel1.Location = new System.Drawing.Point(243, 97);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 118);
             this.panel1.TabIndex = 13;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(225, 418);
+            this.label2.Location = new System.Drawing.Point(240, 409);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 14;
@@ -108,9 +114,10 @@
             // 
             // lblBalance
             // 
-            this.lblBalance.Location = new System.Drawing.Point(295, 418);
+            this.lblBalance.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblBalance.Location = new System.Drawing.Point(310, 409);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(253, 23);
+            this.lblBalance.Size = new System.Drawing.Size(253, 13);
             this.lblBalance.TabIndex = 15;
             this.lblBalance.Text = "£0.00";
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -121,12 +128,13 @@
             this.listTransactions.AllowUserToDeleteRows = false;
             this.listTransactions.AllowUserToResizeColumns = false;
             this.listTransactions.AllowUserToResizeRows = false;
+            this.listTransactions.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
             this.colTransaction,
             this.colAmount});
-            this.listTransactions.Location = new System.Drawing.Point(228, 230);
+            this.listTransactions.Location = new System.Drawing.Point(243, 221);
             this.listTransactions.Name = "listTransactions";
             this.listTransactions.RowHeadersVisible = false;
             this.listTransactions.Size = new System.Drawing.Size(320, 185);
@@ -147,29 +155,39 @@
             this.colAmount.HeaderText = "Amount";
             this.colAmount.Name = "colAmount";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lblBalance);
+            this.panel2.Controls.Add(this.listTransactions);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 450);
+            this.panel2.TabIndex = 18;
+            // 
             // transactions
             // 
+            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.listTransactions);
-            this.Controls.Add(this.lblBalance);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "transactions";
             this.Text = "DGLI Bank";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.transactions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listTransactions)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -185,6 +203,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTransaction;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmount;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

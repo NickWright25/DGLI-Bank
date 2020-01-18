@@ -54,12 +54,11 @@ namespace Bank
 
             if (txtTransaction.Text == "resetmenow!")
             {
-                
+                this.Close();
+                Clipboard.Clear();
+                Form login = Application.OpenForms["login"];
+                login.Show();
             }
-        }
-
-        private void transactions_Load(object sender, EventArgs e)
-        {
         }
     }
 }
