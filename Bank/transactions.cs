@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 using System.Windows.Forms;
 namespace Bank
 {
@@ -8,14 +9,15 @@ namespace Bank
         {
             InitializeComponent();
         }
+        
+        //Prevent window from being resized through title bar double click
         private void transactions_Resize(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
         }
+        //Prevent window from being resized when user left clicks and drags title bar
         protected override void WndProc(ref Message m)
         {
-            // Prevent form from resizing if user attempts to left click
-            // on title bar of form and drag it
             int WM_NCLBUTTONDOWN = 0xA1;
             int WM_SYSCOMMAND = 0x112;
             int HTCAPTION = 0x02;
@@ -30,6 +32,13 @@ namespace Bank
             base.WndProc(ref m);
         }
 
+        private void PlaySound(string file)
+        {
+            SoundPlayer sound = new SoundPlayer(file);
+            sound.Play();
+        }
+
+        //Function to check whether transaction number is valid and display corresponding amount
         public int balance = 0;
         public int transactionNumber = 0;
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -55,6 +64,8 @@ namespace Bank
                         listTransactions.Rows.Add(transactionNumber, transaction, transactions[index + 1]);
                         balance += Convert.ToInt32(transactions[index + 1]);
                         lblBalance.Text = Convert.ToString(balance);
+                        string file = @"C:\Users\nwright\applause_y.wav";
+                        PlaySound(file);
                     }
                     
                 }
@@ -64,6 +75,9 @@ namespace Bank
             {
                 Congratulations CongratulationsForm = new Congratulations();
                 CongratulationsForm.Show();
+
+                string file = @"C:\Users\nwright\cow_toy.wav";
+                PlaySound(file);
             }
             lblBalance.Text = string.Format("£{0:#.00}", Convert.ToDecimal(balance));
 
@@ -74,6 +88,7 @@ namespace Bank
                 Form login = Application.OpenForms["login"];
                 login.Show();
             }
+            txtTransaction.Text = "";
         }
     }
 }
