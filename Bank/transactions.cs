@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Media;
 using System.Windows.Forms;
 namespace Bank
@@ -64,8 +65,11 @@ namespace Bank
                         listTransactions.Rows.Add(transactionNumber, transaction, transactions[index + 1]);
                         balance += Convert.ToInt32(transactions[index + 1]);
                         lblBalance.Text = Convert.ToString(balance);
-                        string file = @"C:\Users\nwright\applause_y.wav";
-                        PlaySound(file);
+                        string file = @"C:\app\audio1.wav";
+                        if (File.Exists(file))
+                        {
+                            PlaySound(file);
+                        }
                     }
                     
                 }
@@ -76,8 +80,11 @@ namespace Bank
                 Congratulations CongratulationsForm = new Congratulations();
                 CongratulationsForm.Show();
 
-                string file = @"C:\Users\nwright\cow_toy.wav";
-                PlaySound(file);
+                string file = @"C:\app\audio2.wav";
+                if (File.Exists(file))
+                {
+                    PlaySound(file);
+                }
             }
             lblBalance.Text = string.Format("£{0:#.00}", Convert.ToDecimal(balance));
 

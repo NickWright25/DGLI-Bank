@@ -36,9 +36,10 @@ namespace Bank
             string password = File.ReadAllText(@"C:\app\password.txt");
             if (txtPassword.Text == password)
             {
-                transactions transactionsForm = new transactions();
-                transactionsForm.Show();
                 this.Hide();
+                transactions transactionsForm = new transactions();
+                transactionsForm.Closed += (s, args) => this.Close();
+                transactionsForm.Show();
             } else
             {
                 IncorrectPassword IncorrectPasswordForm = new IncorrectPassword();
