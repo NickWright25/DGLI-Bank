@@ -4,9 +4,9 @@ using System.Media;
 using System.Windows.Forms;
 namespace Bank
 {
-    public partial class transactions : Form
+    public partial class Transactions : Form
     {
-        public transactions()
+        public Transactions()
         {
             InitializeComponent();
         }
@@ -44,12 +44,20 @@ namespace Bank
         public int transactionNumber = 0;
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            int count = 1;
+            foreach (Form form in Application.OpenForms)
+            {
+                Console.Write(count);
+                count++;
+                Console.WriteLine(form.GetType().ToString() + ", ");
+            }
+
             int index = 0;
             string[] transactions = System.IO.File.ReadAllLines(@"C:\app\transactions.txt");
             bool usedCheck = false;
             foreach(string transaction in transactions)
             {
-                if (transaction == txtTransaction.Text)
+                if (transaction.ToLower() == txtTransaction.Text.ToLower())
                 {
                     foreach(DataGridViewRow row in listTransactions.Rows)
                     {
@@ -90,12 +98,41 @@ namespace Bank
 
             if (txtTransaction.Text == "resetmenow!")
             {
-                this.Close();
-                Clipboard.Clear();
-                Form login = Application.OpenForms["login"];
-                login.Show();
+                if (CheckFormOpen("login"))
+                {
+                    Form login = Application.OpenForms["login"];
+                    login.Show();
+                    Cleanup();
+                    this.Hide();
+                }
+                else
+                {
+                    Login login = new Login();
+                    login.Show();
+                }
             }
             txtTransaction.Text = "";
+        }
+        bool CheckFormOpen(string formName)
+        {
+            foreach(Form form in Application.OpenForms)
+            {
+                if (form.Name == formName)
+                {
+                    return true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return false;
+        }
+        void Cleanup()
+        {
+            Clipboard.Clear();
+            listTransactions.Rows.Clear();
+            lblBalance.Text = "";
         }
     }
 }

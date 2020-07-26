@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 
 namespace Bank
 {
-    public partial class login : Form
+    public partial class Login : Form
     {
-        public login()
+        public Login()
         {
             InitializeComponent();
         }
@@ -33,19 +34,50 @@ namespace Bank
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            int count = 1;
+            foreach (Form form in Application.OpenForms)
+            {
+                Console.Write(count);
+                count++;
+                Console.WriteLine(form.GetType().ToString() + ", ");
+            }
+
             string password = File.ReadAllText(@"C:\app\password.txt");
             if (txtPassword.Text == password)
             {
                 this.Hide();
-                transactions transactionsForm = new transactions();
-                transactionsForm.Closed += (s, args) => this.Close();
-                transactionsForm.Show();
+                bool value = false;
+                FormCollection forms = Application.OpenForms;
+                foreach (Form form in forms)
+                {
+                    if (form.Name == "transactions")
+                    {
+                        value = true;
+                        form.Show();
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                if (value == false)
+                {
+                    Transactions transactionsForm = new Transactions();
+                    transactionsForm.Closed += (s, args) => this.Close();
+                    transactionsForm.Show();
+                }
             } else
             {
                 IncorrectPassword IncorrectPasswordForm = new IncorrectPassword();
                 IncorrectPasswordForm.Show();
             }
             txtPassword.Text = "";
+        }
+
+        private void OnClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
