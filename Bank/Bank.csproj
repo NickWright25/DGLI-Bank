@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Nick\Desktop\DGLI-Bank\</PublishUrl>
+    <PublishUrl>C:\Users\Nick\Desktop\1\DGLI-Bank\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -119,6 +119,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Bank_TemporaryKey.pfx" />
+    <None Include="Install files\Application Files\Bank_1_0_0_14\Bank.application" />
+    <None Include="Install files\Application Files\Bank_1_0_0_14\Bank.exe.config.deploy" />
+    <None Include="Install files\Application Files\Bank_1_0_0_14\Bank.exe.deploy" />
+    <None Include="Install files\Application Files\Bank_1_0_0_14\Bank.exe.manifest" />
+    <None Include="Install files\Bank.application" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -145,5 +150,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Install files\setup.exe" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
