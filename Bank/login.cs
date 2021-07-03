@@ -34,15 +34,7 @@ namespace Bank
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            int count = 1;
-            foreach (Form form in Application.OpenForms)
-            {
-                Console.Write(count);
-                count++;
-                Console.WriteLine(form.GetType().ToString() + ", ");
-            }
-
-            string password = File.ReadAllText(@"C:\app\password.txt");
+            string password = File.ReadAllText($@"{Directory.GetCurrentDirectory()}\852-897-2.txt");
             if (txtPassword.Text == password)
             {
                 this.Hide();

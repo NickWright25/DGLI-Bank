@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 namespace Bank
@@ -44,16 +45,8 @@ namespace Bank
         public int transactionNumber = 0;
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            int count = 1;
-            foreach (Form form in Application.OpenForms)
-            {
-                Console.Write(count);
-                count++;
-                Console.WriteLine(form.GetType().ToString() + ", ");
-            }
-
             int index = 0;
-            string[] transactions = System.IO.File.ReadAllLines(@"C:\app\transactions.txt");
+            string[] transactions = File.ReadAllLines($@"{Directory.GetCurrentDirectory()}\852-168-2.txt");
             bool usedCheck = false;
             foreach(string transaction in transactions)
             {
@@ -73,7 +66,7 @@ namespace Bank
                         listTransactions.Rows.Add(transactionNumber, transaction, transactions[index + 1]);
                         balance += Convert.ToInt32(transactions[index + 1]);
                         lblBalance.Text = Convert.ToString(balance);
-                        string file = @"C:\app\audio1.wav";
+                        string file = $@"{Directory.GetCurrentDirectory()}\audio1.wav";
                         if (File.Exists(file))
                         {
                             PlaySound(file);
@@ -88,7 +81,7 @@ namespace Bank
                 Congratulations CongratulationsForm = new Congratulations();
                 CongratulationsForm.Show();
 
-                string file = @"C:\app\audio2.wav";
+                string file = $@"{Directory.GetCurrentDirectory()}\audio2.wav";
                 if (File.Exists(file))
                 {
                     PlaySound(file);
