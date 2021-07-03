@@ -1,7 +1,8 @@
-﻿namespace Bank
+﻿
+namespace DGLI.Bank.Forms
 {
-    partial class IncorrectPassword
-    {
+	partial class IncorrectPasswordForm
+	{
         /// <summary>
         /// Required designer variable.
         /// </summary>

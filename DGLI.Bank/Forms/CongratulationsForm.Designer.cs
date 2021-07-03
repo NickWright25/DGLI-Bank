@@ -1,7 +1,8 @@
-﻿namespace Bank
+﻿
+namespace DGLI.Bank.Forms
 {
-    partial class Congratulations
-    {
+	partial class CongratulationsForm
+	{
         /// <summary>
         /// Required designer variable.
         /// </summary>
