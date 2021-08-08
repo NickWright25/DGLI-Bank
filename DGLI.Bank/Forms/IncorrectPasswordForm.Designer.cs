@@ -16,9 +16,9 @@ namespace DGLI.Bank.Forms
         {
             if (disposing && (components != null))
             {
-                components.Dispose();
+				components.Dispose();
             }
-            base.Dispose(disposing);
+			this.Hide();
         }
 
         #region Windows Form Designer generated code
@@ -29,33 +29,33 @@ namespace DGLI.Bank.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(118, 107);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 36);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Incorrect Password!";
-            // 
-            // IncorrectPassword
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 271);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "IncorrectPassword";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IncorrectPassword";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.label1 = new System.Windows.Forms.Label();
+			this.SuspendLayout();
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.label1.ForeColor = System.Drawing.Color.Green;
+			this.label1.Location = new System.Drawing.Point(103, 100);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(244, 29);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Incorrect Password!";
+			// 
+			// IncorrectPasswordForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(452, 254);
+			this.Controls.Add(this.label1);
+			this.Margin = new System.Windows.Forms.Padding(4);
+			this.Name = "IncorrectPasswordForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "IncorrectPassword";
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 

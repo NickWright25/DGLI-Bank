@@ -50,20 +50,18 @@ namespace DGLI.Bank.Forms
             {
                 Hide();
                 var transactionForm = Application.OpenForms.Cast<Form>().SingleOrDefault(form => form.Name == "TransactionsForm");
-                if (transactionForm != null)
-				{
-                    transactionForm.Show();
-				}
-                else
-				{
-                    var transactionsForm = (TransactionsForm)_serviceProvider.GetService(typeof(TransactionsForm));
-                    transactionsForm.Closed += (s, args) => this.Close();
-                    transactionsForm.Show();
+                if (transactionForm == null)
+                {
+                    transactionForm = (TransactionsForm)_serviceProvider.GetService(typeof(TransactionsForm));
+                    transactionForm.Closed += (s, args) => this.Close();
                 }
+                transactionForm.Show();
             }
             else
             {
-                var incorrectPasswordForm = (IncorrectPasswordForm)_serviceProvider.GetService(typeof(IncorrectPasswordForm));
+                var incorrectPasswordForm = Application.OpenForms.Cast<Form>().SingleOrDefault(form => form.Name == "IncorrectPasswordForm");
+                if (incorrectPasswordForm == null) incorrectPasswordForm = (IncorrectPasswordForm)_serviceProvider.GetService(typeof(IncorrectPasswordForm));
+
                 incorrectPasswordForm.Show();
             }
             txtPassword.Text = string.Empty;
